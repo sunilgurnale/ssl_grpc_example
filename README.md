@@ -2,7 +2,7 @@
 
 This repository provides a simple example of using SSL and server-side authentication for gRPC using Python.
 
-## Certificate
+## Certificate
 
 Generate certificate for the server. Uses `openssl`.
 
@@ -10,7 +10,7 @@ Generate certificate for the server. Uses `openssl`.
 make gen_key
 ```
 
-## Install gRPC packages
+## Install gRPC packages
 
 ```
 pip install -r requirements.txt
