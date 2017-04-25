@@ -1,5 +1,11 @@
 # Example gRPC - client and server
 
+Generate public-private key for server. Uses openssl.
+
+```
+make gen_key
+```
+
 Install grpc packages.
 
 ```
