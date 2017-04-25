@@ -1,29 +1,35 @@
-# Example gRPC - client and server
+# SSL and server-side authentication for gRPC
 
-Generate RSA key pair for the server. Uses `openssl`.
+This repository provides a simple example of using SSL and server-side authentication for gRPC using Python.
+
+### Certificate
+
+Generate certificate for the server. Uses `openssl`.
 
 ```
 make gen_key
 ```
 
-Install gRPC Python packages.
+### Install gRPC packages
 
 ```
 pip install -r requirements.txt
 ```
 
-Create the gRPC stubs:
+### Generate gRPC stubs
 
 ```
 make stubs
 ```
 
-Run server:
+### Run server
+
 ```
 make server
 ```
 
-Run client
+### Run client
+
 ```
 make client
 ```
