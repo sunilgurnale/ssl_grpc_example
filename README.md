@@ -1,12 +1,12 @@
 # Example gRPC - client and server
 
-Generate public-private key for server. Uses openssl.
+Generate RSA key pair for the server. Uses `openssl`.
 
 ```
 make gen_key
 ```
 
-Install grpc packages.
+Install gRPC Python packages.
 
 ```
 pip install -r requirements.txt
