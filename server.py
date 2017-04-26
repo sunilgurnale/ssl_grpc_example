@@ -19,11 +19,11 @@ def main():
     with open('server.crt') as f:
         certificate_chain = f.read()
 
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
-    service_pb2.add_ServerServicer_to_server(ServerServicer(), server)
-
     server_credentials = grpc.ssl_server_credentials(
       ((private_key, certificate_chain,),))
+
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=1))
+    service_pb2.add_ServerServicer_to_server(ServerServicer(), server)
 
     server.add_secure_port('[::]:'+port, server_credentials)
 
