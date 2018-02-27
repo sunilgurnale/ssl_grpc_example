@@ -2,7 +2,9 @@
 
 This repository provides a simple example of using SSL and server-side authentication for gRPC using Python.
 
-Python 2.7 & 3.6.
+Python 2.7 and 3.6
+
+For more details, see http://www.sandtable.com/using-ssl-with-grpc-in-python/
 
 ## Certificate
 
