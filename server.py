@@ -15,9 +15,9 @@ class ServerServicer(service_pb2_grpc.ServerServicer):
 def main():
     port = '8080'
 
-    with open('server.key', 'rb') as f:
+    with open('tls/tls.key', 'rb') as f:
         private_key = f.read()
-    with open('server.crt', 'rb') as f:
+    with open('tls/tls.crt', 'rb') as f:
         certificate_chain = f.read()
 
     server_credentials = grpc.ssl_server_credentials(
