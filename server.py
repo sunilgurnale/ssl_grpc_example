@@ -3,14 +3,15 @@ from concurrent import futures
 
 import grpc
 
+import time
+
 import service_pb2
 import service_pb2_grpc
 
 
 class ServerServicer(service_pb2_grpc.ServerServicer):
     def Foo(self, request, context):
-        return service_pb2.Empty()
-
+        return service_pb2.Empty(message='Hello! Current time is ' + time.ctime())
 
 def main():
     port = '8080'

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rservice.proto\"\x07\n\x05\x45mpty2!\n\x06Server\x12\x17\n\x03\x46oo\x12\x06.Empty\x1a\x06.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\rservice.proto\"\x18\n\x05\x45mpty\x12\x0f\n\x07message\x18\x01 \x01(\t2!\n\x06Server\x12\x17\n\x03\x46oo\x12\x06.Empty\x1a\x06.Empty\"\x00\x62\x06proto3'
 )
 
 
@@ -33,6 +33,13 @@ _EMPTY = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='message', full_name='Empty.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -46,7 +53,7 @@ _EMPTY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=17,
-  serialized_end=24,
+  serialized_end=41,
 )
 
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
@@ -68,8 +75,8 @@ _SERVER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=26,
-  serialized_end=59,
+  serialized_start=43,
+  serialized_end=76,
   methods=[
   _descriptor.MethodDescriptor(
     name='Foo',
