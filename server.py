@@ -13,7 +13,7 @@ class ServerServicer(service_pb2_grpc.ServerServicer):
 
 
 def main():
-    port = '1337'
+    port = '8080'
 
     with open('server.key', 'rb') as f:
         private_key = f.read()
