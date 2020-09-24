@@ -26,7 +26,7 @@ $ oc annotate ingresses.config/cluster ingress.operator.openshift.io/default-ena
 You can either build the image using S2I or deploy a prebuilt image from quay.io
 
 ```
-$ oc new-app https://github.com/tsailiming ssl_grpc_example --name grpc
+$ oc new-app https://github.com/tsailiming/ssl_grpc_example --name grpc
 ```
 
 ```
