@@ -47,7 +47,7 @@ Using gRPCurl:
 
 ```
 $ HOSTNAME=`oc get route grpc -o jsonpath='{.spec.host}'`
-$ grpcurl  -import-path . -proto service.proto -insecure -cert server.crt -key server.key $HOSTNAME:443 Server.Foo
+$ grpcurl  -import-path . -proto service.proto -insecure -cert tls/tls.crt -key tls/tls.key $HOSTNAME:443 Server.Foo
 {
   "message": "Hello! Current time is Thu Sep 24 14:47:30 2020"
 }
