@@ -1,41 +1,49 @@
-# SSL and server-side authentication for gRPC
-
-This repository provides a simple example of using SSL and server-side authentication for gRPC using Python.
-
-Python 2.7 and 3.6
-
-gRPC: 1.9.1
-
-For more details, see http://www.sandtable.com/using-ssl-with-grpc-in-python/
+# Sample Python gRPC test for OpenShift 
 
 ## Certificate
 
-Generate certificate for the server. Uses `openssl`.
+Generate certificate for the server. Uses `openssl`. 
+
+For the CN, use the `*.apps.apps.<cluster_name>.<base_domain>` wildcard hostname for OpenShift:
+
+```
+$ oc get ingresses.config/cluster -o jsonpath='{.spec.domain}'
+apps.cluster-d3f6.d3f6.example.opentlc.com
+```
 
 ```
 make gen_key
 ```
 
-## Install gRPC packages
+## Enable http/2
 
 ```
-pip install -r requirements.txt
+$ oc annotate ingresses.config/cluster ingress.operator.openshift.io/default-enable-http2=true
 ```
 
-## Generate gRPC stubs
+## Build Server using S2I
 
 ```
-make stubs
+$ oc new-app https://github.com/tsailiming ssl_grpc_example --name grpc
+$ oc create secret tls tls-secret --cert=tls/tls.crt --key=tls/tls.key 
+$ oc set volume dc/grpc --name=tls-secret --type=secret --secret-name=tls-secret --mount-path=/opt/app-root/src/tls --add
+$ oc create route passthrough grpc --service=grpc
 ```
 
-## Run server
+
+## Run Client
+
+Using gRPCurl:
 
 ```
-make server
+$ HOSTNAME=`oc get route grpc -o jsonpath='{.spec.host}'`
+$ grpcurl  -import-path . -proto service.proto -insecure -cert server.crt -key server.key $HOSTNAME:443 Server.Foo
+{
+  "message": "Hello! Current time is Thu Sep 24 14:47:30 2020"
+}
 ```
 
-## Run client
+# Credit
 
-```
-make client
-```
+This repository was originally from http://www.sandtable.com/using-ssl-with-grpc-in-python/
+

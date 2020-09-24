@@ -6,9 +6,9 @@ import service_pb2_grpc
 
 def main():
     host = 'localhost'
-    port = 1337
+    port = 8080
 
-    with open('server.crt', 'rb') as f:
+    with open('tls/tls.crt', 'rb') as f:
         trusted_certs = f.read()
 
     credentials = grpc.ssl_channel_credentials(root_certificates=trusted_certs)
