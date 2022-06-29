@@ -14,7 +14,7 @@ class ServerServicer(service_pb2_grpc.ServerServicer):
         return service_pb2.Empty(message='Hello! Current time is ' + time.ctime())
 
 def main():
-    port = '8080'
+    port = '30052'
 
     with open('tls/tls.key', 'rb') as f:
         private_key = f.read()
