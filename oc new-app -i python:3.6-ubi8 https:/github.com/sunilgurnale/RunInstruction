@@ -1,0 +1,2 @@
+oc new-app -i python:3.6-ubi8 https://github.com/sunilgurnale/ssl_grpc_example --name=grpc -o yaml > Deploy.yaml
+Edit Deploy for Port Number
