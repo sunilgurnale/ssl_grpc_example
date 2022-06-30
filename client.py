@@ -6,7 +6,7 @@ import service_pb2_grpc
 
 def main():
     host = 'localhost'
-    port = 8080
+    port = 30052
 
     with open('tls/tls.crt', 'rb') as f:
         trusted_certs = f.read()
